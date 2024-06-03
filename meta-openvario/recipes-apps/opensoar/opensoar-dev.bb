@@ -1,7 +1,8 @@
 # Copyright (C) 2014 Unknow User <unknow@user.org>
 # Released under the MIT license (see COPYING.MIT for the terms)
 
-PR="r7"
+PR="r22.1"
+RCONFLICTS:${PN}="opensoar"
 
 ### OpenSoar: dev-branch
 SRC_URI = "git:///mnt/d/Projects/OpenSoaring/OpenSoar/.git/;protocol=file;branch=dev-branch "

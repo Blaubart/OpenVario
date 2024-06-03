@@ -2,8 +2,9 @@
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 PR="r7"
-SRC_URI = "git://github.com/OpenSoaring/OpenSoar.git;protocol=https;branch=master " 
+RCONFLICTS:${PN}="opensoar-dev"
 
+SRC_URI = "git://github.com/OpenSoaring/OpenSoar.git;protocol=https;branch=master " 
 # OpenSoar Tag: v7.42.22
 SRCREV = "804ac56de82b0b0554e91587037004a991f9eb78"
 
