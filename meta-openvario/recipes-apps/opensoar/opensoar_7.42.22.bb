@@ -9,7 +9,7 @@ PR="r22.1"
 ### SRCREV = "804ac56de82b0b0554e91587037004a991f9eb78"
 
 ### OpenSoar: dev-branch
-# PN="7.42.dev"
+PV="7.42.dev"
 SRC_URI = "git:///mnt/d/Projects/OpenSoaring/OpenSoar/.git/;protocol=file;branch=dev-branch "
 SRCREV = "${AUTOREV}"
 
