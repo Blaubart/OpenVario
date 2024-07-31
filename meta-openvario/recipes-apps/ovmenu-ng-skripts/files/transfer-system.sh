@@ -109,11 +109,9 @@ backup)
 	# We use --checksum here due to cubieboards not having an rtc clock
 	if 
 		rsync --files-from - --archive --recursive --quiet \
-		      --relative --mkpath --checksum --safe-links \
-		      --progress \
+			--relative --mkpath --checksum --safe-links --progress \
 			/ "$USB_PATH/$BACKUP/$MAC"/ <<-LISTE
 				/etc/udev/rules.d/libinput-ts.rules
-				/etc/pointercal
 				/etc/dropbear
 				/home/root
 				/opt/conf
@@ -122,6 +120,11 @@ backup)
 			LISTE
 		test ${RSYNC_EXIT:=$?} -eq 0
 	then
+		if 
+        rsync --files-from - --archive --recursive --quiet \
+		      --relative --mkpath --checksum --safe-links \
+		      --progress "$USB_PATH/$BACKUP/$MAC"  /etc/pointercal
+		test ${RSYNC_EXIT:=$?} -eq 0
 		echo ' [######====] All files and settings have been backed up.'
 	else 
 		>&2 echo " An rsync error $RSYNC_EXIT has occurred!"
