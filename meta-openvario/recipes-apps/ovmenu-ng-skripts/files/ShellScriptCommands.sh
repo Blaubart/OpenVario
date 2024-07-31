@@ -37,3 +37,8 @@ cat /sys/devices/system/cpu/cpu*/cpufreq/cpuinfo_cur_freq
 # set datetime: this is setting the software clock only, the hardware clock
 # is untouched (and set the system clock at next boot
 date -s "2024-10-06 10:21"
+
+
+# Search and Replace
+[[ das muss ich noch ergaenzen...]]
+
