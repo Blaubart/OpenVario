@@ -12,7 +12,7 @@ SRC_URI = "git://github.com/XCSoar/XCSoar.git;protocol=https;branch=master "
 # commit id from XCSoar/XCSoar(?):
 SRCREV = "9ee29aa606f7ebc44604b51c966882a3b9d7c953"
 
-BOOST_VERSION = "1.84.0"
-BOOST_SHA256HASH = "cc4b893acf645c9d4b698e9a0f08ca8846aa5d6c68275c14c3e7949c24109454"
+BOOST_VERSION = "1.85.0"
+BOOST_SHA256HASH = "7009fe1faa1697476bdc7027703a2badb84e849b7b0baad5086b087b971f8617"
 
 require xcsoar.inc
