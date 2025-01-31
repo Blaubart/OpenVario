@@ -27,6 +27,12 @@ DEPENDS = "	\
 		fmt \
 		dbus \
 		wpa-supplicant \
+		sqlite3 \
+		proj \
+		libtiff \
+		libgeotiff \
+		netcdf \
+		netcdf_c++4 \
 "
 
 RDEPENDS:${PN} = "\
