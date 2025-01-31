@@ -38,7 +38,59 @@ cat /sys/devices/system/cpu/cpu*/cpufreq/cpuinfo_cur_freq
 # is untouched (and set the system clock at next boot
 date -s "2024-10-06 10:21"
 
+=============================================================
+So kann man Zeichen oder Strings von hinten, bzw. rechts abschneiden:
 
+VALUE=textpart.txt.dat
+echo ${VALUE%.*}
+
+#Ausgabe:
+textpart.txt
+
+So kann man den längst möglichen String von rechts entfernen:
+
+VALUE=textpart.txt.dat.gz
+echo ${VALUE%%.*}
+
+# Ausgabe:
+textpart
+
+Beides umgedreht geht mit #. Möchte man also den kürzest möglichen String von links abschneiden:
+
+VALUE="/path/filename.dat.txt"
+echo ${VALUE#*/}
+
+# Ausgabe:
+path/filename.dat
+
+# oder:
+VALUE="/path/filename.dat.txt"
+echo ${VALUE#*.}
+
+#Ausgabe:
+dat.txt
+
+für den längsmöglichen String von links:
+VALUE="/path/filename.dat.txt"
+echo ${VALUE##*/}
+
+# Ausgabe:
+filename.dat.txt
+
+
+# oder
+VALUE="/path/filename.dat.txt"
+echo ${VALUE##*.}
+
+# Ausgabe:
+txt
+=============================================================
 # Search and Replace
 [[ das muss ich noch ergaenzen...]]
+siehe https://www.data2type.de/xml-xslt-xslfo/regulaere-ausdruecke/regex-methoden-aus-der-praxis/einige-kleine-beispiele/verschachtelte-klammerpaare
+
+Search(1):      \([^()]*\)
+Search(2):      \([^()]*(\([^()]*\)[^()]*)*\)
+*** Ersetzen klappt noch gar nicht!
+(Ersetzen:       $1 oder \1)
 
