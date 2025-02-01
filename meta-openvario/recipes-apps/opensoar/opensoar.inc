@@ -27,6 +27,8 @@ DEPENDS = "	\
 		fmt \
 		dbus \
 		wpa-supplicant \
+"
+DEPENDS_RESERVE = " \
 		sqlite3 \
 		proj \
 		libtiff \
