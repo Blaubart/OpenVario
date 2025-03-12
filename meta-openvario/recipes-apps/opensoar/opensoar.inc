@@ -1,5 +1,5 @@
-DESCRIPTION = "XCSoar glide computer"
-HOMEPAGE = "www.xcsoar.org"
+DESCRIPTION = "OpenSoar glide computer"
+HOMEPAGE = "www.opensoar.de"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=393a5ca445f6965873eca0259a17f833"
 SECTION = "base/app"
@@ -30,6 +30,7 @@ DEPENDS = "	\
 		sqlite3 \
 		proj \
 		tiff \
+		netcdf-c \
 "
 DEPENDS_RESERVE = " \
 		libtiff \
