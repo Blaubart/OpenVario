@@ -94,3 +94,64 @@ Search(2):      \([^()]*(\([^()]*\)[^()]*)*\)
 *** Ersetzen klappt noch gar nicht!
 (Ersetzen:       $1 oder \1)
 
+=============================================================
+# Recursives Löschen:
+# Nur mit echo
+  find $DIR -name $ENDUNG -exec echo rm -rv {} \;
+  #oder
+  find $DIR -name $ENDUNG -delete
+# jetzt in echt:
+  find $DIR -name $ENDUNG -exec rm -rv {} \;
+# Beispiel (mit Zone.Identifier):
+  find ./ -name *Zone.Identifier -exec rm -rv {} \;
+  #oder
+  find ./ -name *Zone.Identifier -delete
+=============================================================
+Zip bzw Unzip
+-------------
+... als Teil einer C++-Datei (SkysightAPI.cpp) zum Unzippen über die Commandozeile (am 24.02.2025 beseitigt mit zlib)
+1. Löschen der tmp-Dateien im Tempordner
+#if ZIP_TEST 
+    char zip_buffer[0x10000];
+    /* Test:*/  filepath = Path("D:/Data/OpenSoarData/skysight/Test.zip");
+    Unzip(filepath, zip_buffer, sizeof(zip_buffer));
+#else 
+    [[maybe_unused]] char zip_buffer[] = "Das ist ein Test!!!";
+#endif
+    char console_cmd[0x4000];
+    char tmp_dir[MAX_PATH];
+    std::string dir = filepath.GetParent().ToUTF8();
+#ifdef _WIN32
+    std::replace(dir.begin(), dir.end(), '/', '\\');
+    snprintf(tmp_dir, sizeof(tmp_dir), "%s\\tmp", dir.c_str());
+  else
+    snprintf(tmp_dir, sizeof(tmp_dir), "%s/tmp", dir.c_str());
+#endif
+
+#ifdef _WIN32
+    snprintf(console_cmd, sizeof(console_cmd), "rd %s /S /Q", dir.c_str());
+#else  // _WIN32
+    snprintf(console_cmd, sizeof(console_cmd), "rm -rf %s", dir.c_str());
+#endif
+    printf("Delete-Command: ", console_cmd);
+    system(console_cmd);
+2. Unzip mit 7z.exe (Windows) bzw. gzip (Unix)
+#ifdef _WIN32
+    snprintf(console_cmd, sizeof(console_cmd), "D:\\Programs\\7-Zip\\7z.exe e -o%s  %s",
+      tmp_dir, filepath.c_str());
+#else  // _WIN32
+    snprintf(console_cmd, sizeof(console_cmd), "gzip -cdf  %s > %s",
+      filepath.c_str(), tmp_dir);
+#endif
+    printf("Zip-Command: ", console_cmd);
+    system(console_cmd);
+3. Umbenennen (Kopieren) der entpackten Datei in ihren Zielort - xcopy (Windows) bzw. cp (Unix)
+    std::string file = filepath.ToUTF8();
+#ifdef _WIN32
+    std::replace(file.begin(), file.end(), '/', '\\');
+    snprintf(console_cmd, sizeof(console_cmd), "xcopy %s\\tmp* %s /Y /-I", tmp_dir, file.c_str());
+#else  // _WIN32
+    snprintf(console_cmd, sizeof(console_cmd), "cp -rf %s/tmp* %s", tmp_dir, file.c_str());
+#endif
+    printf("Copy-Command: ", console_cmd);
+    system(console_cmd);
