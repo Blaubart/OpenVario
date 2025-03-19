@@ -1,7 +1,7 @@
 # Copyright (C) 2014 Unknow User <unknow@user.org>
 # Released under the MIT license (see COPYING.MIT for the terms)
 
-PR="r22.3"
+PR="r23.1"
 # RCONFLICTS:${PN}="opensoar-dev"
 
 ## SRC_URI = "git://github.com/OpenSoaring/OpenSoar.git;protocol=https;branch=master " 
@@ -11,11 +11,11 @@ PR="r22.3"
 ## SRCREV = "804ac56de82b0b0554e91587037004a991f9eb78"
 
 ## OpenSoar: dev-branch
-# PV="7.42.dev"
-# SRC_URI = "git:///mnt/d/Projects/OpenSoaring/OpenSoar/.git/;protocol=file;branch=dev-branch "
-# SRCREV = "${AUTOREV}"
-SRC_URI = "https://githb.com/August2111/OpenSoar/.git/;protocol=file;branch=dev-branch "
+# PV="7.43.dev"
+SRC_URI = "git:///mnt/d/Projects/OpenSoaring/OpenSoar/.git/;protocol=file;branch=dev-branch "
 SRCREV = "${AUTOREV}"
+# SRC_URI = "https://github.com/August2111/OpenSoar/.git/;protocol=file;branch=dev-branch "
+# SRCREV = "${AUTOREV}"
 
 
 # BOOST_VERSION = "1.84.0"
