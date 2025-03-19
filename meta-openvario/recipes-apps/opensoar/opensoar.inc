@@ -35,7 +35,7 @@ DEPENDS_RESERVE = " \
 		libtiff \
 		libgeotiff \
 		netcdf \
-		netcdf_c++4 \
+		netcdf_c++ \
 "
 
 RDEPENDS:${PN} = "\
@@ -50,15 +50,18 @@ NETCDF_URL = "https://storage.googleapis.com/lazyrasp.com/xcsoar/netcdf-c-4.6.2.
 NETCDF_HASH="eda1be377fce86e5d91b30a00b15bb7ea9c97f5c5ef007901145549786781710"
 NETCDF_CXX_URL = "https://storage.googleapis.com/lazyrasp.com/xcsoar/netcdf-cxx-4.2.tar.gz"
 NETCDF_CXX_HASH="95ed6ab49a0ee001255eac4e44aacb5ca4ea96ba850c08337a3e4c9a0872ccd1"
+GEOTIFF_URL = "http://download.osgeo.org/geotiff/libgeotiff/libgeotiff-1.7.1.tar.gz"
+GEOTIFF_HASH="05ab1347aaa471fc97347d8d4269ff0c00f30fa666d956baba37948ec87e55d6"
 
 BOOST_URL = "https://archives.boost.io/release/${BOOST_VERSION}/source/${BOOST_FILE}"
-
+BOOST_HASH = "${BOOST_SHA256HASH}"
 BOOST_FILE = "boost_${@'${BOOST_VERSION}'.replace('.','_')}.tar.bz2"
 SRC_URI += " \
 	file://0007-Disable-touch-screen-auto-detection.patch \
-	${BOOST_URL};sha256sum=${BOOST_SHA256HASH};unpack=0 \
+	${BOOST_URL};sha256sum=${BOOST_HASH};unpack=0 \
 	${NETCDF_URL};sha256sum=${NETCDF_HASH};unpack=0 \
 	${NETCDF_CXX_URL};sha256sum=${NETCDF_CXX_HASH};unpack=0 \
+	${GEOTIFF_URL};sha256sum=${GEOTIFF_HASH};unpack=0 \
 "
 
 inherit pkgconfig
