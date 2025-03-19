@@ -30,7 +30,6 @@ DEPENDS = "	\
 		sqlite3 \
 		proj \
 		tiff \
-		netcdf-c \
 "
 DEPENDS_RESERVE = " \
 		libtiff \
