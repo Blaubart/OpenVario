@@ -27,11 +27,12 @@ DEPENDS = "	\
 		fmt \
 		dbus \
 		wpa-supplicant \
+"
+DEPENDS_RESERVE = " \
 		sqlite3 \
 		proj \
 		tiff \
-"
-DEPENDS_RESERVE = " \
+		\
 		libtiff \
 		libgeotiff \
 		netcdf \
@@ -46,6 +47,12 @@ S = "${WORKDIR}/git"
 
 LC_LOCALE_PATH = "${datadir}/locale"
 
+LIBTIFF_URL = "http://download.osgeo.org/libtiff/tiff-4.6.0.tar.xz"
+LIBTIFF_HASH="e178649607d1e22b51cf361dd20a3753f244f022eefab1f2f218fc62ebaf87d2"
+PROJ_URL = "http://download.osgeo.org/proj/proj-9.3.1.tar.gz"
+PROJ_HASH="b0f919cb9e1f42f803a3e616c2b63a78e4d81ecfaed80978d570d3a5e29d10bc"
+SQLITE_URL = "https://www.sqlite.org/2023/sqlite-autoconf-3420000.tar.gz"
+SQLITE_HASH="7abcfd161c6e2742ca5c6c0895d1f853c940f203304a0b49da4e1eca5d088ca6"
 NETCDF_URL = "https://storage.googleapis.com/lazyrasp.com/xcsoar/netcdf-c-4.6.2.tar.gz"
 NETCDF_HASH="eda1be377fce86e5d91b30a00b15bb7ea9c97f5c5ef007901145549786781710"
 NETCDF_CXX_URL = "https://storage.googleapis.com/lazyrasp.com/xcsoar/netcdf-cxx-4.2.tar.gz"
@@ -61,6 +68,9 @@ SRC_URI += " \
 	${BOOST_URL};sha256sum=${BOOST_HASH};unpack=0 \
 	${NETCDF_URL};sha256sum=${NETCDF_HASH};unpack=0 \
 	${NETCDF_CXX_URL};sha256sum=${NETCDF_CXX_HASH};unpack=0 \
+	${SQLITE_URL};sha256sum=${SQLITE_HASH};unpack=0 \
+	${LIBTIFF_URL};sha256sum=${LIBTIFF_HASH};unpack=0 \
+	${PROJ_URL};sha256sum=${PROJ_HASH};unpack=0 \
 	${GEOTIFF_URL};sha256sum=${GEOTIFF_HASH};unpack=0 \
 "
 
