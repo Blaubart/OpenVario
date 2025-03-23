@@ -72,8 +72,8 @@ SRC_URI += " \
 # SRC_URI += " ${SQLITE_URL};sha256sum=${SQLITE_HASH};unpack=0 "
 # SRC_URI += " ${LIBTIFF_URL};sha256sum=${LIBTIFF_HASH};unpack=0 "
 # SRC_URI += " ${PROJ_URL};sha256sum=${PROJ_HASH};unpack=0 \
-SRC_URI += " ${GEOTIFF_URL};sha256sum=${GEOTIFF_HASH};unpack=0 "
-"
+# SRC_URI += " ${GEOTIFF_URL};sha256sum=${GEOTIFF_HASH};unpack=0 "
+
 
 inherit pkgconfig
 addtask do_package_write_ipk after do_package
