@@ -10,18 +10,19 @@ require openvario.inc
 ## # OpenSoar Tag: v7.42.22
 ## # SRCREV = "1ac45834b293d306164e2059657fc0c7d10633c2"
 ## # prev. (and old) Tag: 
-## SRCREV = "804ac56de82b0b0554e91587037004a991f9eb78"
+## 
+SRCREV = "804ac56de82b0b0554e91587037004a991f9eb78"
 
 ## OpenSoar: dev-branch
 OPENSOAR = "${OpenSoar-Version}"
 # PV="7.43.23.dev"
 SRC_URI = "git:///mnt/d/Projects/OpenSoaring/OpenSoar/.git/;protocol=file;branch=dev-branch;tag=opensoar-7.43p2.23 "
 SRCREV = "${AUTOREV}"
-# SRC_URI = "https://github.com/August2111/OpenSoar/.git/;protocol=file;branch=dev-branch "
+
+SRC_URI = "git://github.com/August2111/OpenSoar.git;protocol=https;branch=dev-branch "
 # SRCREV = "${AUTOREV}"
 
 # Revisoned 
-SRC_URI = "git:///mnt/d/Projects/OpenSoaring/OpenSoar/.git/;protocol=file;branch=dev-branch "
 SRCREV = "3d533839a880a38e7ff683e2e77fe328f21500a2"
 
 
