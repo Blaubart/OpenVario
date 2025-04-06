@@ -4,7 +4,7 @@
 PR="r23.2"
 # RCONFLICTS:${PN}="opensoar-dev"
 
-require "OpenVario.config"
+require "OpenVario.config.inc"
 ## include "OpenVario.config"
 ## source "OpenVario.config"
 
