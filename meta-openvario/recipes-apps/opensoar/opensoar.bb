@@ -4,7 +4,8 @@
 PR="r23.2"
 # RCONFLICTS:${PN}="opensoar-dev"
 
-source "OpenVario.config"
+include "OpenVario.config"
+## source "OpenVario.config"
 
 ## SRC_URI = "git://github.com/OpenSoaring/OpenSoar.git;protocol=https;branch=master " 
 ## # OpenSoar Tag: v7.42.22
