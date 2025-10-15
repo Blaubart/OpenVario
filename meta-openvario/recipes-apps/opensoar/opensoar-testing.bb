@@ -2,7 +2,7 @@
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 PR="r7"
-SRC_URI = "git://github.com/Blaubart/OpenSoar.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/opensoaring/OpenSoar.git;protocol=https;branch=master"
 ### OpenSoar Tag: v7.41.21
 
 ###  SRCREV = ""
