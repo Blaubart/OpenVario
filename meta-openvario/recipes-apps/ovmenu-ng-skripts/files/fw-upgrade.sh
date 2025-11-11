@@ -243,6 +243,13 @@ function select_image() {
         # ... or in form '##.##.##' like '3.0.2' 
         TARGET_FW_VERSION=$(echo $IMAGE_NAME | grep -oE '[0-9]+[.][0-9]+[.][0-9A-Z]+')
       fi
+      if [ -z "$TARGET_FW_VERSION" ]; then
+        # ... or in form '##.##' like '3.23' 
+        TARGET_FW_VERSION=$(echo $IMAGE_NAME | grep -oE '[0-9]+[.][0-9]+')
+      fi
+      if [ -z "$TARGET_FW_VERSION" ]; then
+        error_stop "TARGET_FW_VERSION NOT detected from $IMAGE_NAME! "
+      fi
       TARGET_HW=$(echo $IMAGE_NAME | awk -F'-CB2-|.img' '{print $2}')
       # awk is splitting 'OV-3.0.2.20-CB2-CH57.img.gz' in:
       # OV-3.0.2.20', 'CH57', '.gz' (-CB2- and .img are cutted out) 
@@ -269,6 +276,7 @@ function select_image() {
   FW_TYPE_TARGET=$?
   vercomp   "${BASE_FW_VERSION//-/.}"   "3.2.19"
   FW_TYPE_BASE=$?
+
   printv "2) '$FW_TYPE_BASE' => '$FW_TYPE_TARGET'"
   if [ "$FW_TYPE_TARGET" = "2" ]; then
     if [ "$FW_TYPE_BASE" = "2" ]; then
@@ -288,6 +296,10 @@ function select_image() {
   target_display=$?
   vercomp   "${BASE_FW_VERSION//-/.}" "22000"
   base_display=$?
+
+    debug_stop "target_display = $target_display () (TARGET_FW_VERSION , ${TARGET_FW_VERSION//-/.})"
+    debug_stop "base_display = $base_display        ($BASE_FW_VERSION , ${BASE_FW_VERSION//-/.}) "
+
   if [ ! "$target_display" = "$base_display" ]; then
     DISPLAY_ROTATION=Yes
     debug_stop "Display-Rotation has to be changed!"
