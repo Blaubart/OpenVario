@@ -16,6 +16,3 @@ IMAGE_INSTALL += "\
 "
 
 export IMAGE_BASENAME = "openvario-testing"
-
-#    sensord-testing 
-#    variod-testing 
