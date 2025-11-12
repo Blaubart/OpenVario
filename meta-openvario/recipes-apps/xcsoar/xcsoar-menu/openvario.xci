@@ -19,42 +19,13 @@ event=Mode Vario_menu
 label=Vario
 location=13
 
-# this (8) is an empty field in default.xci
-# it is important for older firmware, because
-# there are the higehst index is 31  
 mode=RemoteStick
 type=key
 data=0
 event=Exit system
 event=Mode default
 label=Quit
-location=8
-
-# OpenVario only:
-mode=RemoteStick
-type=key
-data=0
-event=Shutdown reboot
-event=Mode default
-label=Reboot
-location=61
-
-# OpenVario only:
-mode=RemoteStick
-type=key
-data=0
-event=Shutdown shutdown
-event=Mode default
-label=Shutdown
-location=62
-
-mode=RemoteStick
-type=key
-data=0
-event=Exit system
-event=Mode default
-label=Quit
-location=63
+location=31
 
 
 # -------------
@@ -147,14 +118,22 @@ location=9
 mode=default
 type=key
 data=V
-event=SendNMEAPort1 POV,C,VAR
-event=StatusMessage Vario Mode
+#event=SendNMEAPort1 POV,C,VAR
+event=SendNMEAPort2 PFV,REM,C
+#event=StatusMessage Vario Mode
 
 mode=default
 type=key
 data=S
-event=SendNMEAPort1 POV,C,STF 
-event=StatusMessage Speed to Fly Mode
+#event=SendNMEAPort1 POV,C,STF
+event=SendNMEAPort2 PFV,REM,S
+#event=StatusMessage Speed to Fly Mode
+
+mode=default
+type=key
+data=A
+event=SendNMEAPort2 PFV,REM,A
+#event=StatusMessage Automatic Mode
 
 mode=default RemoteStick
 type=key
